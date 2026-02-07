@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aster Book Store</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
+<link rel="stylesheet" href="style.css">
+<style>
+    .mySlides {
+        display: none;
+    }
+
+    .w3-left,
+    .w3-right,
+    .w3-badge {
+        cursor: pointer
+    }
+
+    .w3-badge {
+        height: 13px;
+        width: 13px;
+        padding: 0
+}               
+</style>
+
+<body>
+    <nav class="navbar">
+        <div class="menu-toggle" id="mobile-menu">☰</div>
+
+        <div class="logo">
+            <img src="aster logo.png" alt="Book Store">
+            <a style="text-decoration: none; color: white;" href="#home">
+                <span>Aster Book Store</span>
+            </a>
+        </div>
+
+        <div class="nav-menu" id="nav-menu">
+            <div class="nav-left">
+                <a href="index.html">Home</a>
+                <a href="books.html">Books</a>
+                <a href="genre.html">Genre</a>
+                <a href="about.html">About</a>
+            </div>
+
+            <div class="nav-center">
+                <label for="site-search" style="display: none;">Search the site</label>
+                <input type="text" id="site-search" name="q" placeholder="Search..." />
+            </div>
+
+            <div class="nav-right">
+                <a href="order.html">🛒 Order</a>
+                <a href="login.html" id="navLoginLink">Login</a>
+                <a href="#" id="logoutBtn" style="display: none;">Logout</a>
+            </div>
+
+        </div>
+    </nav>
+    <h1 style="color: white; text-align: center; text-decoration: none;"> Most Popular Books</h1>
+    <div class="w3-content w3-display-container" style="max-width:900px">
+        <img class="mySlides"
+            src="https://static.qqtoon.com/common/32f908e952bf4459876fa1350aa1f7641735552798803.jpg?x-oss-process=image/resize,w_800,m_lfit/quality,q_75/format,jpg"
+            style="width:100%">
+        <img class="mySlides"
+            src="https://static.qqtoon.com/common/3098cb64faeb4b8a8bdc58bf884ed4611737440268928.jpg?x-oss-process=image/resize,w_800,m_lfit/quality,q_75/format,jpg"
+            style="width:100%">
+        <img class="mySlides"
+            src="https://static.qqtoon.com/common/83bcb91d38ea4b85b6bc038f2d964ec91740124408086.jpg?x-oss-process=image/resize,w_800,m_lfit/quality,q_75/format,jpg"
+            style="width:100%">
+        <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle"
+            style="width:100%">
+            <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
+            <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
+        </div>
+    </div>
+
+    <div class="guest-overlay" id="guestOverlay">
+        <div class="guest-form-container">
+            <h2>Welcome to Aster Book Store</h2>
+            <p>Please choose how you'd like to proceed:</p>
+            <button id="loginBtn">Log In</button>
+            <button id="guestBtn">Continue as Guest</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+
+    <script>
+        var slideIndex = 1;
+        showDivs(slideIndex);
+
+        function plusDivs(n) {
+            showDivs(slideIndex += n);
+        }
+
+        function currentDiv(n) {
+            showDivs(slideIndex = n);
+        }
+
+        function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            if (n > x.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = x.length }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" w3-white", "");
+            }
+            x[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " w3-white";
+        }
+    </script>
+
+</body>
+
+</html>
